@@ -16,6 +16,7 @@ public class Ex3 {
 
         System.out.println("성인입니까? " + isAdult);
 
+
         // 실습 2 합격/불합격 판별 (삼항 연산자)
         System.out.print("점수 입력: ");
         int score = scanner.nextInt();
