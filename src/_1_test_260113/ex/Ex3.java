@@ -11,7 +11,7 @@ public class Ex3 {
         System.out.print("나이 입력: ");
         int age = scanner.nextInt();
 
-        // 19세 이상인지 비교 (결과는 true 또는 false)
+        // 19세 이상인지 비교 (결과는 true or false)
         boolean isAdult = (age >= 19);
 
         System.out.println("성인입니까? " + isAdult);
