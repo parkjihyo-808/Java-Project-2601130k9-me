@@ -8,7 +8,7 @@ public class Ex1 {
         Scanner scanner = new Scanner(System.in);
 
 
-        // 실습 1 나이 판별 (if문)
+        // 실습 1: 나이 판별 (if문)
         System.out.println("나이를 입력하세요: ");
 
         // 스캐너 가져오기
@@ -19,7 +19,7 @@ public class Ex1 {
         }
 
 
-        //실습 2 메뉴 선택 (switch문)
+        //실습 2: 메뉴 선택 (switch문)
         System.out.println("1. 김밥 / 2. 국밥 / 3. 칼국수 / 4. 국수 / 5. 떡볶이");
         System.out.print("원하는 메뉴 번호를 선택하세요: ");
 
@@ -42,7 +42,7 @@ public class Ex1 {
         }
 
 
-        // 실습 3 등급 출력 (if-else if-else)
+        // 실습 3: 등급 출력 (if-else if-else)
         System.out.print("점수를 입력하세요(0~100): ");
 
         int score = scanner.nextInt();
