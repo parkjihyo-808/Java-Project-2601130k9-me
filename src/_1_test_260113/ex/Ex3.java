@@ -7,6 +7,8 @@ public class Ex3 {
         // 스캐너 도구 사용
         Scanner scanner = new Scanner(System.in);
 
+
+
         // 실습 1 성인 여부 판별 (비교 연산자)
         System.out.print("나이 입력: ");
         int age = scanner.nextInt();
