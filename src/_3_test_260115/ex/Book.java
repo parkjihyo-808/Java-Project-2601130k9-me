@@ -1,4 +1,4 @@
-package ex;
+package _3_test_260115.ex;
 
 public class Book {
     // 멤버 변수 (상태)
