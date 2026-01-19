@@ -11,6 +11,6 @@ public class _2_privateMain_Ex {
         sample1.setName("금동");
         // 값을 조회할 때, 전용 메서드를 이용. getName
         String name = sample1.getName();
-        System.out.println("조회한 이름 : " + name);
+        System.out.println("조회한 이름: " + name);
     }
 }
