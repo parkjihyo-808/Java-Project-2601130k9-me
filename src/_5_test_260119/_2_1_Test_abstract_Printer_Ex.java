@@ -1,6 +1,6 @@
 package _5_test_260119;
 
-public class _2_Test_abstract_Printer_Ex extends _2_Test_abstract_Machine_Ex{
+public class _2_1_Test_abstract_Printer_Ex extends _2_1_Test_abstract_Machine_Ex {
 
     @Override
     void operate() {

@@ -1,6 +1,6 @@
 package _5_test_260119;
 
-public class _2_3_Test_interface_SmartPhone_Ex implements _2_3_Test_interface_Phone_Ex, _2_3_Test_interface_Camera_Ex{
+public class _2_3_Test_interface_SmartPhone_Ex implements _2_3_Test_interface_Phone_Ex, _2_3_Test_interface_Camera_Ex {
 
     @Override
     public void takePhoto() {
