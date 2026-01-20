@@ -1,10 +1,9 @@
-package _5_test_260119.ex;
+package _6_test_260120;
 
-public class _4_NormalMember_Ex4 extends _4_MemberBase_Ex4  {
-    public _4_NormalMember_Ex4(String name, String email, int age, String password) {
+public class _1_NormalMember_Ex1 extends _1_MemberBase_Ex1 {
+    public _1_NormalMember_Ex1(String name, String email, int age, String password) {
         super(name, email, age, password); // 부모 생성자에 비번까지 전달
     }
-
     // Joinable 인터페이스의 메서드를 재정의
     @Override
     public void join() {
@@ -17,5 +16,5 @@ public class _4_NormalMember_Ex4 extends _4_MemberBase_Ex4  {
         System.out.println("이름 : " +name);
         System.out.println("이메일 : " +email);
         System.out.println("나이 : " +age);
-        }
     }
+}

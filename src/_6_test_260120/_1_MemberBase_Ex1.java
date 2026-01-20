@@ -1,19 +1,19 @@
-package _5_test_260119.ex;
+package _6_test_260120;
 
-public abstract class _4_MemberBase_Ex4 {
+public abstract class _1_MemberBase_Ex1 {
     protected String name;
     protected String email;
     protected int age;
     protected String password; // 4번 실습: 패스워드 추가
 
-    public _4_MemberBase_Ex4(String name, String email, int age, String password) {
+    public _1_MemberBase_Ex1(String name, String email, int age, String password) {
         this.name = name;
         this.email = email;
         this.age = age;
         this.password = password;
     }
 
-    // Joinable 인터페이스의 메서드를 재정의,
+    // Joinable 인터페이스의 메서드 재정의
     public abstract void join();
 
     public abstract void showInfo(); // 정보 출력용 추상 메서드
