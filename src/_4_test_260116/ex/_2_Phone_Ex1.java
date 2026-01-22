@@ -2,7 +2,7 @@ package _4_test_260116.ex;
 // 실습2
 // Phone 클래스에서 **static 공유 멤버**를 활용한 설계 구조
 // 제조사 이름(manufacturer)
-// 모든 인스턴스가 공유해야 할 정보 _5_test_260119._7_test_260121.ex)애플, 삼성
+// 모든 인스턴스가 공유해야 할 정보 _5_test_260119._7_test_260121._8_test_260122.ex)애플, 삼성
 
 public class _2_Phone_Ex1 {
     //Phone 클래스에서 **static 공유 멤버**를 활용한 설계 구조
