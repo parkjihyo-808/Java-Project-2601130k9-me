@@ -1,13 +1,13 @@
-package _7_test_260121.memberProject;
+package _8_test_260122.memberProject;
 
-public class _1_NormalMember extends _1_MemberBase implements _1_Joinable {
+public class _3_NormalMember extends _3_MemberBase implements _3_Joinable {
     // 매개변수가 3개인 생성자
 
     // 260120_실습4_풀이, 순서6, 생성자를 수정, 부모 클래스의 멤버 password 추가 되어서,
 //    public _3_NormalMember(String name, String email, int age) {
 //        super(name,email,age);
 //    }
-    public _1_NormalMember(String name, String email, String password , int age) {
+    public _3_NormalMember(String name, String email, String password ,int age) {
         super(name,email,password,age);
     }
 

@@ -1,35 +1,37 @@
-package _7_test_260121.memberProject;
+package _8_test_260122.memberProject;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class _1_MainClass {
+public class _3_MainClass {
 
     private static final String FILE_NAME = "members.txt";
 
     public static void main(String[] args) {
 
-        Map<String,_1_MemberBase> members = new HashMap<>();
+        Map<String, _3_MemberBase> members = new HashMap<>();
         loadMembers(members);
 
-        _1_MemberBase loggedInMember = null;
+        _3_MemberBase loggedInMember = null;
 
         Scanner sc = new Scanner(System.in);
 
         while (true) {
             // 260122_기능추가_수정_순서2-1
-            System.out.println("\n=============회원 관리 시스템 ver 2.1(수정기능추가)=======");
+            System.out.println("\n=============회원 관리 시스템 ver 2.2(검색기능추가)=======");
             if(loggedInMember != null) {
                 System.out.println("-------------------------------------------");
                 System.out.println("로그인 한 유저 : " + loggedInMember.getEmail());
                 System.out.println("-------------------------------------------");
                 // 260122_기능추가_수정_순서2-2
-                System.out.println("1. 회원가입 2. 목록조회 3. 로그아웃 4. 회원수정 5. 종료");
+                // 260122_기능추가_검색_순서1
+                System.out.println("1. 회원가입 2. 목록조회 3. 로그아웃 4. 회원수정  5. 회원검색 6. 종료");
             } else {
                 // 260122_기능추가_수정_순서2-3
-                System.out.println("1. 회원가입 2. 목록조회 3. 로그인 4. 회원수정 5. 종료");
+                // 260122_기능추가_검색_순서2
+                System.out.println("1. 회원가입 2. 목록조회 3. 로그인 4. 회원수정 5. 회원검색 6. 종료");
             }
             System.out.println("메뉴 선택 >>");
 
@@ -60,7 +62,7 @@ public class _1_MainClass {
                     System.out.println("나이: ");
                     int age = Integer.parseInt(sc.nextLine());
 
-                    _1_NormalMember newMember = new _1_NormalMember(name, email, password, age);
+                    _3_NormalMember newMember = new _3_NormalMember(name, email, password, age);
                     members.put(email, newMember);
                     newMember.join();
                     saveMembers(members);
@@ -70,7 +72,7 @@ public class _1_MainClass {
                     if (members.isEmpty()) {
                         System.out.println("가입된 회원이 없습니다. ");
                     } else {
-                        for (_1_MemberBase member: members.values()) {
+                        for (_3_MemberBase member: members.values()) {
                             // 260121_업그레이드_ArrayList에서_HashMap으로_변경, 순서4-3
 //                            members.get(i).showInfo();
                             member.showInfo();
@@ -92,7 +94,7 @@ public class _1_MainClass {
 
                         if(members.containsKey(inputEmail)) {
                             // 로그인시, 입력한 이메일 정보가, Map 들어가 있다면, 로직 실행.
-                            _1_MemberBase member = members.get(inputEmail);
+                            _3_MemberBase member = members.get(inputEmail);
 
                             if(member.getEmail().equals(inputEmail) &&
                                     member.getPassword().equals(inputPassword)
@@ -142,7 +144,7 @@ public class _1_MainClass {
                     boolean isUpdated = false;
 
                     // 260122_기능추가_수정_순서4-4
-
+                    
                     switch (choiceNumber) {
                         // 입력 받은 숫자가 문자열 타입이므로, "1" ,"2","3","4" 표기한다.
                         case "1":
@@ -152,7 +154,7 @@ public class _1_MainClass {
                             // 패스워드 변경하는 세터 메서드를 이용해서, 변경.
                             // setPassword
                             // loggedInMember , 로그인한 유저 정보를 가지고 있는 객체(인스턴스)
-                            // 객체 점을 찍고 사용 -> _8_test_260122.ex) loggedInMember.setPassword(변경할 내용)
+                            // 객체 점을 찍고 사용 -> ex) loggedInMember.setPassword(변경할 내용)
                             loggedInMember.setPassword(newPassword);
                             // 변경 했으니, 상태 변수를 변경.
                             isUpdated = true;
@@ -194,8 +196,56 @@ public class _1_MainClass {
                     }
                     break;
 
-                // 260122_기능추가_수정_순서3-2
+                // 260122_기능추가_검색_순서3
                 case 5:
+                    System.out.println("\n===회원 검색====");
+                    System.out.println("1. 이메일(ID)로 검색 정확히 일치");
+                    System.out.println("2. 이름으로 검색 (포함된 이름)");
+                    System.out.println("번호 선택 >>");
+
+                    String searchType = sc.nextLine();
+
+                    if(searchType.equals("1")) {
+                        // 이메일로 검색
+                        // HashMap key로 바로 검색 가능.
+                        System.out.println("검색할 이메일 입력 : ");
+                        String searchEmail = sc.nextLine();
+
+                        if(members.containsKey(searchEmail)) {
+                            System.out.println("\n 검색 결과");
+                            members.get(searchEmail).showInfo();
+                        } else {
+                            System.out.println("해당 이메일의 회원이 업습니다.");
+                        }
+
+                    } else if (searchType.equals("2")) {
+                        // 이름으로 검색.
+                        System.out.println("검색할 이름 입력:" );
+                        String searchName= sc.nextLine();
+
+                        // 상태변수, 검색 되었는지 여부
+                        boolean isFound = false;
+                        System.out.println("검색중....");
+
+                        for(_3_MemberBase m: members.values()) {
+                            if(m.getName().contains(searchName)) {
+                                m.showInfo();
+                                isFound = true;
+                            }
+                        } // for 닫기
+                        // 없을 경우.
+                        if(!isFound) {
+                            System.out.println("회원을 찾을 수 없습니다. ");
+                        }
+
+                    } else {
+                        System.out.println("잘못된 선택입니다.");
+                    }
+                    break;
+
+                    // 260122_기능추가_수정_순서3-2
+                // 260122_기능추가_검색_순서3-2
+                case 6:
                     System.out.println("프로그램을 종료합니다. ");
                     // 스캐너 자원 반납
                     sc.close();
@@ -205,14 +255,14 @@ public class _1_MainClass {
             } //switch 닫기
         }//while 닫기
     } // main 닫기
-    public static void saveMembers(Map<String,_1_MemberBase> members){
+    public static void saveMembers(Map<String, _3_MemberBase> members){
         BufferedWriter bw = null;
         try {
             bw = new BufferedWriter(new FileWriter(FILE_NAME));
-            for(_1_MemberBase m: members.values()) {
+            for(_3_MemberBase m: members.values()) {
                 String line = m.getName()+","+m.getEmail()+","+m.getPassword()+","+m.getAge();
                 bw.write(line);
-                bw.newLine(); // 줄바꿈
+                bw.newLine(); // 줄바꿈 함.
             }
             System.out.println("파일 저장 완료 " + FILE_NAME);
 
@@ -230,7 +280,7 @@ public class _1_MainClass {
         }
     }
 
-    public static int loadMembers(Map<String, _1_MemberBase> members){
+    public static int loadMembers(Map<String, _3_MemberBase> members){
         File file = new File(FILE_NAME);
         if(!file.exists()) { // 해당 파일이 존재 안하니? true(파일없다)
             return 0;
@@ -247,7 +297,7 @@ public class _1_MainClass {
                     String email = data[1];
                     String password = data[2];
                     int age = Integer.parseInt(data[3]);
-                    members.put(email,new _1_NormalMember(name,email,password,age));
+                    members.put(email,new _3_NormalMember(name,email,password,age));
                     loadCount++;
 
                 }
@@ -267,4 +317,4 @@ public class _1_MainClass {
         return loadCount;
     }
 
-}// _1_MainClass 닫기
+}// _3_MainClass 닫기

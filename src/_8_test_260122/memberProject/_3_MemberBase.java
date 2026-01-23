@@ -1,6 +1,6 @@
-package _7_test_260121.memberProject;
+package _8_test_260122.memberProject;
 
-public abstract class _1_MemberBase {
+public abstract class _3_MemberBase {
     // 현재 여기 접근 지정은, 상속 받은 자식 클래스는 접근이 가능하지만,
     // 메인 클래스는 상속을 받지 않아서, 접근 불가능함. 그래서, 만약 필요시, 접근 하기 위해서는
     // getter 라는 메서드를 작성 해야함.
@@ -13,7 +13,7 @@ public abstract class _1_MemberBase {
 
     // 260120_실습4_풀이, 순서3, 생성자 수정.
 //    public _3_MemberBase(String name, String email, int age) {
-    public _1_MemberBase(String name, String email,String password, int age) {
+    public _3_MemberBase(String name, String email,String password, int age) {
         this.name = name;
         this.email = email;
         // 260120_실습4_풀이, 순서4, 멤버 추가.
